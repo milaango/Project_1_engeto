@@ -104,7 +104,7 @@ for keys, values in registered_users.items():
 
         # choose one of the texts:
         choice = input(f"Enter a number btw. 1 and {sum_of_texts}" 
-                       f"to select: ")
+                       f" to select: ")
         if not choice.isdigit():
             print("You have not entered a number, terminating the program..")
             break
@@ -142,18 +142,18 @@ for keys, values in registered_users.items():
             print(f"LEN|  OCCURENCES  |NR.")
             print("-" * 40)
             word_counts = count_frequencies(words)
-            for i in range(len(word_counts)):
-                if word_counts[i] != 0:
-                    stars = "*" * word_counts[i]
+            for number in range(len(word_counts)):
+                if word_counts[number] != 0:
+                    stars = "*" * word_counts[number]
                     gaps = " " * (20 - len(stars))
-                    if i < 9:
+                    if number < 9:
                         print(
-                            " " + str(i + 1) + "|" + stars + gaps 
+                            " " + str(number + 1) + "|" + stars + gaps 
                             + "|" + str(len(stars))
                             )
                     else:
                         print(
-                            str(i + 1) + "|" + stars + gaps 
+                            str(number + 1) + "|" + stars + gaps 
                             + "|" + str(len(stars))
                             )
         break
