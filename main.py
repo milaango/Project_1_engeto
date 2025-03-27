@@ -35,17 +35,21 @@ TEXTS = [
 ]
 
 
-def count_numeric_strings(list_of_words: list[str]) -> tuple[int, int]:
+def count_numeric_strings(list_of_words: list) -> tuple:
     """
     Function that analyzes a list of words and returns a tuple
-        with the sum of numeric strings and the sum of numbers.
+        with the count of numeric strings and their numerical sum.
 
-    Args:
-        list_of_words (list[str]): A list containing words (str)
-    
-    Returns:
-        tuple[int, int]: A tuple containg the sum of numeric strings
-            and the sum of numbers
+    :param list_of_words: parameter "list_of_words" containing words (str)
+    :type list_of_words: list
+    :return: a pair of values where the first element is the count of numeric strings,
+        and the second element is their numerical sum.
+    :rtype: tuple
+
+    :Example:
+    >>> result = count_numeric_strings(["2", "ring", "82"])
+    >>> result
+    (2, 84)
     """
 
     numeric_strings = [string for string in list_of_words if string.isdigit()]
@@ -57,17 +61,21 @@ def count_numeric_strings(list_of_words: list[str]) -> tuple[int, int]:
     return results
 
 
-def count_alphabetical_strings(list_of_words: list[str]) -> tuple[int, int, int]:
+def count_alphabetical_strings(list_of_words: list) -> tuple:
     """
     Function that analyzes a list of words and returns a tuple
         with the counts of titlecase, uppercase, and lowercase words.
     
-    Args:
-        list_of_words (list[str]): A list containing words (str)
-    
-    Returns:
-        tuple[int, int, int]: A tuple containing the number 
-            of titlecase words, uppercase words and lowercase words
+    :param list_of_words: parameter "list_of_words" containing words (str)
+    :type list_of_words: list
+    :return: a tuple where the first, second and third element represents 
+        the counts of titlecase, uppercase and lowercase words (in that order)
+    :rtype: tuple
+
+    :Example:
+    >>> result = count_alphabetical_strings(["Honey", "ring", "sit", "MONKEY"])
+    >>> result
+    (1, 1, 2)
     """
 
     titles = 0
@@ -84,16 +92,21 @@ def count_alphabetical_strings(list_of_words: list[str]) -> tuple[int, int, int]
     return word_counts
 
 
-def count_frequencies(list_of_words: list[str]) -> tuple[int, ...]:
+def count_frequencies(list_of_words: list) -> tuple:
     """
-    Function that counts the frequencies of words with the same length.
+    Function that counts the frequencies of words with the same length,
+        with the maximum length of words = 15.
 
-    Args:
-        list_of_words (list[str]): A list containing words (str)
-    
-    Returns:
-        tuple[int, ...]: A tuple where the j-th element contains 
-            the number of words with length j + 1
+    :param list_of_words: a list containing words (str)
+    :type list_of_words: list
+    :return: A tuple where the j-th element contains 
+        the number of words with length j + 1
+    :rtype: tuple
+
+    :Example:
+    >>> frequencies = count_frequencies(["NY", "ok", "ME", "365", "London"])
+    >>> frequencies
+    (0, 3, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0)
     """
     
     counts = list()
