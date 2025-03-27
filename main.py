@@ -137,6 +137,7 @@ if registered_users.get(user_name_input) == password_input:
     # of registered users, pass:
     
     sum_of_texts = len(TEXTS)
+
     print("-"*40)
     print(f"Welcome to the app, {user_name_input}")
     print(f"We have {sum_of_texts} texts to be analyzed.")
@@ -175,6 +176,7 @@ if registered_users.get(user_name_input) == password_input:
         titlecase_words_sum, uppercase_words_sum, lowercase_words_sum = (
             count_alphabetical_strings(words)
         )
+        
         print(f"There are {sum_of_words} words in the selected text.")
         print(f"There are {titlecase_words_sum} titlecase words.")
         print(f"There are {uppercase_words_sum} uppercase words.")
