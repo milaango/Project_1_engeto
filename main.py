@@ -189,7 +189,7 @@ if registered_users.get(user_name_input) == password_input:
         word_counts = count_frequencies(words)
 
         for number in range(len(word_counts)):
-            if word_counts[number] != 0: # only if frequencies > 0
+            if word_counts[number] != 0: # only if frequency > 0
                 stars = "*" * word_counts[number]
                 gaps = " " * (20 - len(stars))
                 
