@@ -122,18 +122,17 @@ if registered_users.get(user_name_input) == password_input:
 
         # analyzing the text using functions:
         sum_of_words = len(words)
-        numeric_strings_sum = count_numeric_strings(words)[0]
-        sum_of_numbers = count_numeric_strings(words)[1]
-        titlecase_words_sum = count_alphabetical_strings(words)[0]
-        uppercase_words_sum = count_alphabetical_strings(words)[1]
-        lowercase_words_sum = count_alphabetical_strings(words)[2]
+        numeric_strings_sum, sum_of_numbers = count_numeric_strings(words)
+        titlecase_words_sum, uppercase_words_sum, lowercase_words_sum = (
+            count_alphabetical_strings(words)
+        )
 
         print(f"There are {sum_of_words} words in the selected text.")
-        print(f"There are {titlecase_words_sum} titlecase words.")
-        print(f"There are {uppercase_words_sum} uppercase words.")
-        print(f"There are {lowercase_words_sum} lowercase words.")
-        print(f"There are {numeric_strings_sum} numeric strings.")
-        print(f"The sum of all the numbers {sum_of_numbers}.")
+        print(f"There are {titlecase_words_sum[0]} titlecase words.")
+        print(f"There are {uppercase_words_sum[1]} uppercase words.")
+        print(f"There are {lowercase_words_sum[2]} lowercase words.")
+        print(f"There are {numeric_strings_sum[0]} numeric strings.")
+        print(f"The sum of all the numbers {sum_of_numbers[1]}.")
 
         # printing a frequency chart for words of the same length:
         print("-" * 40)
