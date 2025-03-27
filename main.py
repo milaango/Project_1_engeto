@@ -54,17 +54,17 @@ def count_alphabetical_strings(list_of_words: list) -> tuple:
     Function that analyzes a list of words and returns a tuple
     with the counts of titlecase, uppercase, and lowercase words.
     """
-    titles = list()
-    uppercase_words = list()
-    lowercase_words = list()
+    titles = 0
+    uppercase_words = 0
+    lowercase_words = 0
     for word in list_of_words:
         if word.istitle():
-            titles.append(word)
+            titles += 1
         elif word.islower():
-            lowercase_words.append(word)
+            lowercase_words += 1
         elif word.isupper():
-            uppercase_words.append(word)
-    word_counts = (len(titles), len(uppercase_words), len(lowercase_words))
+            uppercase_words += 1
+    word_counts = (titles, uppercase_words, lowercase_words)
     return word_counts
 
 
