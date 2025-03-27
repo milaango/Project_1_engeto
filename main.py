@@ -131,7 +131,6 @@ registered_users = {
 user_name_input = str(input("username: "))
 password_input = str(input("password: "))
 
-
 if registered_users.get(user_name_input) == password_input:
     # if the username and password are in the dictionary 
     # of registered users, pass:
