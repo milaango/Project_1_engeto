@@ -135,7 +135,6 @@ password_input = str(input("password: "))
 if registered_users.get(user_name_input) == password_input:
     # if the username and password are in the dictionary 
     # of registered users, pass:
-    
     sum_of_texts = len(TEXTS)
     print("-"*40)
     print(f"Welcome to the app, {user_name_input}")
