@@ -157,6 +157,7 @@ if registered_users.get(user_name_input) == password_input:
             if word_counts[number] != 0:
                 stars = "*" * word_counts[number]
                 gaps = " " * (20 - len(stars))
+                
                 if number < 9:
                     print(
                         " " 
