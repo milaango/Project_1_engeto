@@ -162,6 +162,6 @@ if registered_users.get(user_name_input) == password_input:
                         + "|" 
                         + str(len(stars))
                     )
-                    
+
 else:
     print("unregistered user, terminating the program..")
