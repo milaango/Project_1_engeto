@@ -83,10 +83,12 @@ def count_frequencies(list_of_words:list) -> tuple:
 
 
 # a dictionary containing usernames and passwords:
-registered_users = {"bob": "123", 
-                    "ann": "pass123", 
-                    "mike": "password123", 
-                    "liz": "pass123"} 
+registered_users = {
+    "bob": "123", 
+    "ann": "pass123", 
+    "mike": "password123", 
+    "liz": "pass123"
+} 
 user_name_input = str(input("username: "))
 password_input = str(input("password: "))
 
