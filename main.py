@@ -125,9 +125,9 @@ registered_users = {
     "ann": "pass123", 
     "mike": "password123", 
     "liz": "pass123"
-} 
+}
 
-# user inputs:
+# user's input (name and password):
 user_name_input = str(input("username: "))
 password_input = str(input("password: "))
 
@@ -137,7 +137,6 @@ if registered_users.get(user_name_input) == password_input:
     # of registered users, pass:
     
     sum_of_texts = len(TEXTS)
-
     print("-"*40)
     print(f"Welcome to the app, {user_name_input}")
     print(f"We have {sum_of_texts} texts to be analyzed.")
@@ -146,7 +145,7 @@ if registered_users.get(user_name_input) == password_input:
     # choose one of the texts:
     choice = input(f"Enter a number btw. 1 and {sum_of_texts} to select: ")
 
-    # if user's choice is not digit, terminate:
+    # if user's choice is not digit:
     if not choice.isdigit():
         print("You have not entered a number, terminating the program..")
 
@@ -158,7 +157,6 @@ if registered_users.get(user_name_input) == password_input:
 
     else:
         # creating a list of words without specific symbols (.,- etc.):
-
         words = (
             TEXTS[int(choice) - 1]
             .replace(".", "")
@@ -185,15 +183,14 @@ if registered_users.get(user_name_input) == password_input:
         print(f"The sum of all the numbers {sum_of_numbers}.")
 
         # printing a frequency chart for words of the same length:
-
+        
         print("-" * 40)
         print(f"LEN|  OCCURENCES  |NR.")
         print("-" * 40)
-
         word_counts = count_frequencies(words)
 
         for number in range(len(word_counts)):
-            if word_counts[number] != 0: # print only frequencies > 0
+            if word_counts[number] != 0: # only if frequencies > 0
                 stars = "*" * word_counts[number]
                 gaps = " " * (20 - len(stars))
                 
