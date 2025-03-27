@@ -101,23 +101,24 @@ if registered_users.get(user_name_input) == password_input:
     print("-"*40)
 
     # choose one of the texts:
-    choice = input(f"Enter a number btw. 1 and {sum_of_texts}" 
-                    f" to select: ")
+    choice = input(f"Enter a number btw. 1 and {sum_of_texts} to select: ")
     if not choice.isdigit():
         print("You have not entered a number, terminating the program..")
     elif int(choice) not in range(1, sum_of_texts + 1):
         print(
-        "You have not chosen the right number, "
-        "terminating the program.."
+        "You have not chosen the right number, terminating the program.."
         )
     else:
         # creating a list of words without specific symbols (.,- etc.):
         words = (
             TEXTS[int(choice) - 1]
-            .replace(".", "").replace("    ", "")
-            .replace(",", "").replace("\n", " ")
-            .replace("-"," ").split(" ")
-            )
+            .replace(".", "")
+            .replace("    ", "")
+            .replace(",", "")
+            .replace("\n", " ")
+            .replace("-"," ")
+            .split(" ")
+        )
 
         # analyzing the text using functions:
         sum_of_words = len(words)
@@ -126,6 +127,7 @@ if registered_users.get(user_name_input) == password_input:
         titlecase_words_sum = count_alphabetical_strings(words)[0]
         uppercase_words_sum = count_alphabetical_strings(words)[1]
         lowercase_words_sum = count_alphabetical_strings(words)[2]
+
         print(f"There are {sum_of_words} words in the selected text.")
         print(f"There are {titlecase_words_sum} titlecase words.")
         print(f"There are {uppercase_words_sum} uppercase words.")
@@ -144,13 +146,22 @@ if registered_users.get(user_name_input) == password_input:
                 gaps = " " * (20 - len(stars))
                 if number < 9:
                     print(
-                        " " + str(number + 1) + "|" + stars + gaps 
-                        + "|" + str(len(stars))
-                        )
+                        " " 
+                        + str(number + 1) 
+                        + "|" 
+                        + stars 
+                        + gaps 
+                        + "|" 
+                        + str(len(stars))
+                    )
                 else:
                     print(
-                        str(number + 1) + "|" + stars + gaps 
-                        + "|" + str(len(stars))
-                        )
+                        str(number + 1) 
+                        + "|" 
+                        + stars 
+                        + gaps 
+                        + "|" 
+                        + str(len(stars))
+                    )
 else:
     print("unregistered user, terminating the program..")
