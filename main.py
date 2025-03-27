@@ -5,6 +5,7 @@ author: Milan Angelis
 email: milanangelis@seznam.cz
 """
 
+
 TEXTS = [
     '''Situated about 10 miles west of Kemmerer,
     Fossil Butte is a ruggedly impressive
@@ -97,7 +98,7 @@ if registered_users.get(user_name_input) == password_input:
 
     # if the username and password are in the dictionary 
     # of registered users, pass:
-
+    
     sum_of_texts = len(TEXTS)
     print("-"*40)
     print(f"Welcome to the app, {user_name_input}")
@@ -107,12 +108,15 @@ if registered_users.get(user_name_input) == password_input:
     # choose one of the texts:
 
     choice = input(f"Enter a number btw. 1 and {sum_of_texts} to select: ")
+
     if not choice.isdigit():
         print("You have not entered a number, terminating the program..")
+
     elif int(choice) not in range(1, sum_of_texts + 1):
         print(
         "You have not chosen the right number, terminating the program.."
         )
+
     else:
 
         # creating a list of words without specific symbols (.,- etc.):
@@ -146,6 +150,7 @@ if registered_users.get(user_name_input) == password_input:
         print("-" * 40)
         print(f"LEN|  OCCURENCES  |NR.")
         print("-" * 40)
+
         word_counts = count_frequencies(words)
 
         for number in range(len(word_counts)):
