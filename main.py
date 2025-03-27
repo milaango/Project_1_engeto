@@ -82,7 +82,6 @@ def count_frequencies(list_of_words:list) -> tuple:
     return tuple(counts)
 
 
-sum_of_texts = len(TEXTS)
 # a dictionary containing usernames and passwords:
 registered_users = {"bob": "123", 
                     "ann": "pass123", 
@@ -95,6 +94,7 @@ password_input = str(input("password: "))
 if registered_users.get(user_name_input) == password_input:
     # if the username and password are in the dictionary 
     # of registered users, pass:
+    sum_of_texts = len(TEXTS)
     print("-"*40)
     print(f"Welcome to the app, {user_name_input}")
     print(f"We have {sum_of_texts} texts to be analyzed.")
@@ -128,11 +128,11 @@ if registered_users.get(user_name_input) == password_input:
         )
 
         print(f"There are {sum_of_words} words in the selected text.")
-        print(f"There are {titlecase_words_sum[0]} titlecase words.")
-        print(f"There are {uppercase_words_sum[1]} uppercase words.")
-        print(f"There are {lowercase_words_sum[2]} lowercase words.")
-        print(f"There are {numeric_strings_sum[0]} numeric strings.")
-        print(f"The sum of all the numbers {sum_of_numbers[1]}.")
+        print(f"There are {titlecase_words_sum} titlecase words.")
+        print(f"There are {uppercase_words_sum} uppercase words.")
+        print(f"There are {lowercase_words_sum} lowercase words.")
+        print(f"There are {numeric_strings_sum} numeric strings.")
+        print(f"The sum of all the numbers {sum_of_numbers}.")
 
         # printing a frequency chart for words of the same length:
         print("-" * 40)
@@ -162,5 +162,6 @@ if registered_users.get(user_name_input) == password_input:
                         + "|" 
                         + str(len(stars))
                     )
+                    
 else:
     print("unregistered user, terminating the program..")
