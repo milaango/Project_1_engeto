@@ -126,7 +126,6 @@ if registered_users.get(user_name_input) == password_input:
         titlecase_words_sum, uppercase_words_sum, lowercase_words_sum = (
             count_alphabetical_strings(words)
         )
-
         print(f"There are {sum_of_words} words in the selected text.")
         print(f"There are {titlecase_words_sum} titlecase words.")
         print(f"There are {uppercase_words_sum} uppercase words.")
