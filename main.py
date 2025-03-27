@@ -41,7 +41,7 @@ def count_numeric_strings(list_of_words: list) -> tuple:
     with the sum of numeric strings and the sum of numbers.
 
     Args:
-        list_of_words (List[str]): A list containg words (str)
+        list_of_words (list[str]): A list containg words (str)
     
     Returns:
         tuple[int, int]: A tuple (sum_of_strings, sum_of_numbers)
@@ -61,7 +61,7 @@ def count_alphabetical_strings(list_of_words: list) -> tuple:
     with the counts of titlecase, uppercase, and lowercase words.
     
     Args:
-        list_of_words (List[str]): A list containg words (str)
+        list_of_words (list[str]): A list containg words (str)
     
     Returns:
         tuple[int, int, int]: A tuple (titles, uppercase_words, lowercase_words)
@@ -85,10 +85,11 @@ def count_frequencies(list_of_words: list) -> tuple:
     Function that counts the frequencies of words with the same length.
 
     Args:
-        list_of_words (List[str]): A list containg words (str)
+        list_of_words (list[str]): A list containg words (str)
     
     Returns:
-        tuple[int, ...] # DODELAT
+        tuple[int, ...]: A tuple where the j-th element contains 
+        the number of words with length j + 1
     """
     counts = list()
     for number in range(15):
