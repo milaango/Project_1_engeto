@@ -120,19 +120,19 @@ def count_frequencies(list_of_words: list) -> tuple:
 
 
 # a dictionary containing usernames and passwords:
-
 registered_users = {
     "bob": "123", 
     "ann": "pass123", 
     "mike": "password123", 
     "liz": "pass123"
 } 
+
+# user inputs:
 user_name_input = str(input("username: "))
 password_input = str(input("password: "))
 
 
 if registered_users.get(user_name_input) == password_input:
-
     # if the username and password are in the dictionary 
     # of registered users, pass:
     
@@ -144,12 +144,13 @@ if registered_users.get(user_name_input) == password_input:
     print("-"*40)
 
     # choose one of the texts:
-
     choice = input(f"Enter a number btw. 1 and {sum_of_texts} to select: ")
 
+    # if user's choice is not digit, terminate:
     if not choice.isdigit():
         print("You have not entered a number, terminating the program..")
 
+    # if user's choice is out of range:
     elif int(choice) not in range(1, sum_of_texts + 1):
         print(
         "You have not chosen the right number, terminating the program.."
@@ -192,7 +193,7 @@ if registered_users.get(user_name_input) == password_input:
         word_counts = count_frequencies(words)
 
         for number in range(len(word_counts)):
-            if word_counts[number] != 0:
+            if word_counts[number] != 0: # print only frequencies > 0
                 stars = "*" * word_counts[number]
                 gaps = " " * (20 - len(stars))
                 
