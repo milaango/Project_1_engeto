@@ -92,70 +92,65 @@ user_name_input = str(input("username: "))
 password_input = str(input("password: "))
 
 
-for keys, values in registered_users.items():
-    if keys == user_name_input and values == password_input: 
-        
-        # if the username and password are in the dictionary 
-        # of registered users, pass:
-        print("-"*40)
-        print(f"Welcome to the app, {user_name_input}")
-        print(f"We have {sum_of_texts} texts to be analyzed.")
-        print("-"*40)
+if registered_users.get(user_name_input) == password_input:
+    # if the username and password are in the dictionary 
+    # of registered users, pass:
+    print("-"*40)
+    print(f"Welcome to the app, {user_name_input}")
+    print(f"We have {sum_of_texts} texts to be analyzed.")
+    print("-"*40)
 
-        # choose one of the texts:
-        choice = input(f"Enter a number btw. 1 and {sum_of_texts}" 
-                       f" to select: ")
-        if not choice.isdigit():
-            print("You have not entered a number, terminating the program..")
-            break
-        elif int(choice) not in range(1, sum_of_texts + 1):
-            print(
-                "You have not chosen the right number, "
-                "terminating the program.."
-                )
-            break
-        else:
-            # creating a list of words without specific symbols (.,- etc.):
-            words = (
-                TEXTS[int(choice) - 1]
-                .replace(".", "").replace("    ", "")
-                .replace(",", "").replace("\n", " ")
-                .replace("-"," ").split(" ")
+    # choose one of the texts:
+    choice = input(f"Enter a number btw. 1 and {sum_of_texts}" 
+                    f" to select: ")
+    if not choice.isdigit():
+        print("You have not entered a number, terminating the program..")
+    elif int(choice) not in range(1, sum_of_texts + 1):
+        print(
+        "You have not chosen the right number, "
+        "terminating the program.."
+        )
+    else:
+        # creating a list of words without specific symbols (.,- etc.):
+        words = (
+            TEXTS[int(choice) - 1]
+            .replace(".", "").replace("    ", "")
+            .replace(",", "").replace("\n", " ")
+            .replace("-"," ").split(" ")
             )
 
-            # analyzing the text using functions:
-            sum_of_words = len(words)
-            numeric_strings_sum = count_numeric_strings(words)[0]
-            sum_of_numbers = count_numeric_strings(words)[1]
-            titlecase_words_sum = count_alphabetical_strings(words)[0]
-            uppercase_words_sum = count_alphabetical_strings(words)[1]
-            lowercase_words_sum = count_alphabetical_strings(words)[2]
-            print(f"There are {sum_of_words} words in the selected text.")
-            print(f"There are {titlecase_words_sum} titlecase words.")
-            print(f"There are {uppercase_words_sum} uppercase words.")
-            print(f"There are {lowercase_words_sum} lowercase words.")
-            print(f"There are {numeric_strings_sum} numeric strings.")
-            print(f"The sum of all the numbers {sum_of_numbers}.")
+        # analyzing the text using functions:
+        sum_of_words = len(words)
+        numeric_strings_sum = count_numeric_strings(words)[0]
+        sum_of_numbers = count_numeric_strings(words)[1]
+        titlecase_words_sum = count_alphabetical_strings(words)[0]
+        uppercase_words_sum = count_alphabetical_strings(words)[1]
+        lowercase_words_sum = count_alphabetical_strings(words)[2]
+        print(f"There are {sum_of_words} words in the selected text.")
+        print(f"There are {titlecase_words_sum} titlecase words.")
+        print(f"There are {uppercase_words_sum} uppercase words.")
+        print(f"There are {lowercase_words_sum} lowercase words.")
+        print(f"There are {numeric_strings_sum} numeric strings.")
+        print(f"The sum of all the numbers {sum_of_numbers}.")
 
-            # printing a frequency chart for words of the same length:
-            print("-" * 40)
-            print(f"LEN|  OCCURENCES  |NR.")
-            print("-" * 40)
-            word_counts = count_frequencies(words)
-            for number in range(len(word_counts)):
-                if word_counts[number] != 0:
-                    stars = "*" * word_counts[number]
-                    gaps = " " * (20 - len(stars))
-                    if number < 9:
-                        print(
-                            " " + str(number + 1) + "|" + stars + gaps 
-                            + "|" + str(len(stars))
-                            )
-                    else:
-                        print(
-                            str(number + 1) + "|" + stars + gaps 
-                            + "|" + str(len(stars))
-                            )
-        break
+        # printing a frequency chart for words of the same length:
+        print("-" * 40)
+        print(f"LEN|  OCCURENCES  |NR.")
+        print("-" * 40)
+        word_counts = count_frequencies(words)
+        for number in range(len(word_counts)):
+            if word_counts[number] != 0:
+                stars = "*" * word_counts[number]
+                gaps = " " * (20 - len(stars))
+                if number < 9:
+                    print(
+                        " " + str(number + 1) + "|" + stars + gaps 
+                        + "|" + str(len(stars))
+                        )
+                else:
+                    print(
+                        str(number + 1) + "|" + stars + gaps 
+                        + "|" + str(len(stars))
+                        )
 else:
     print("unregistered user, terminating the program..")
